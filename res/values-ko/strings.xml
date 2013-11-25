@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_name">Yamba</string>
+    <string name="titleStatus">상태업데이트</string>
+    
+    <string name="hintText">140자이내로 상태를 입력하세요.</string>
+    <string name="buttonUpdate">업데이트 </string>
+    
+    <string name="action_settings">세팅 </string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="titleUsername">아이디</string>
+    <string name="summaryUsername">트위터 아이디를 입력하세요</string>
+    <string name="titlePassword">비밀번호</string>
+    <string name="summaryPassword">트위터 비밀번호를 입력하세요</string>
+    <string name="titleApiRoot">API 루트</string>
+    <string name="summaryApiRoot">API 루트를 입력하세요</string>
+    <string name="titleServiceStart">서비스 시작</string>
+    <string name="titleServiceStop">서비스 정지</string>
+    <string name="titleTimeline">Timeline</string>
+    <string name="msgSetupPrefs">Preference에서 아이디와 비밀번호를 먼저 지정해주세요.</string>
+    <string name="msgAllDataPurged">디바이스에 저장된 기록이 모두 삭제되었습니다.</string>
+    
+</resources>
