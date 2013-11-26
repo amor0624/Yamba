@@ -1,5 +1,6 @@
 package com.marakana.yamba;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -62,7 +63,7 @@ public class StatusData {
 		this.dbHelper.close();
 	}
 	
-	public void insertOrIgnore(ContentValues values) {
+    public void insertOrIgnore(ContentValues values) {
 		Log.d(TAG, "insertOrIgnore on "+ values);
 		SQLiteDatabase db = this.dbHelper.getWritableDatabase();
 		try {

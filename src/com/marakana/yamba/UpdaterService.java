@@ -9,7 +9,7 @@ public class UpdaterService extends Service {
 	static final String TAG = "UpdaterService";
 	static final String NEW_STATUS_INTENT = "com.marakana.yamba.NEW_STATUS";
 	static final String NEW_STATUS_EXTRA_COUNT = "NEW_STATUS_EXTRA_COUNT";
-	static final String RECEIVE_TIMELINE_NOTIFICATIONS = "com.marakana.yamba.RECEIVE_TIMELINE_NOTIFICATIONS";
+	
 	static final int DELAY = 60000; //a minute
 	private boolean runFlag = false;
 	private Updater updater;
@@ -47,8 +47,8 @@ public class UpdaterService extends Service {
 		if (!runFlag){
 			this.runFlag = true;
 			this.updater.start();
-			//this.yamba.setServiceRunning(true);
-			((YambaApplication) super.getApplication()).setServiceRunning(true);
+			this.yamba.setServiceRunning(true);
+			//((YambaApplication) super.getApplication()).setServiceRunning(true);
 			
 			Log.d(TAG, "onStarted");
 		}
@@ -60,6 +60,7 @@ public class UpdaterService extends Service {
 	 * Thread that performs the actual update from the online service
 	 */
 	private class Updater extends Thread {
+		static final String RECEIVE_TIMELINE_NOTIFICATIONS = "com.marakana.yamba.RECEIVE_TIMELINE_NOTIFICATIONS";
 		Intent intent;
 		
 		public Updater() {
@@ -71,7 +72,7 @@ public class UpdaterService extends Service {
 			while (updaterService.runFlag) {
 				Log.d(TAG, "Running background thread");
 				try {
-					YambaApplication yamba = (YambaApplication) updaterService.getApplication();
+					//YambaApplication yamba = (YambaApplication) updaterService.getApplication();
 					int newUpdates = yamba.fetchStatusUpdates();
 					if (newUpdates > 0) {
 						Log.d(TAG, "We have a new status");

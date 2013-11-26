@@ -29,7 +29,6 @@ public final class R {
         public static final int pandabears=0x7f020005;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000e;
         public static final int buttonUpdate=0x7f090005;
         public static final int editText=0x7f090004;
         public static final int itemPrefs=0x7f09000b;
@@ -54,33 +53,32 @@ public final class R {
     }
     public static final class menu {
         public static final int menu=0x7f080000;
-        public static final int status=0x7f080001;
     }
     public static final class string {
-        public static final int action_settings=0x7f060004;
+        public static final int action_settings=0x7f060003;
         public static final int app_name=0x7f060000;
-        public static final int buttonUpdate=0x7f060003;
-        public static final int hello_world=0x7f060005;
-        public static final int hintText=0x7f060002;
-        public static final int msgAllDataPurged=0x7f060012;
-        public static final int msgLastTimelineUpdate=0x7f060017;
-        public static final int msgSetupPrefs=0x7f060010;
-        public static final int receive_timeline_notifications_permission_description=0x7f060016;
-        public static final int receive_timeline_notifications_permission_label=0x7f060015;
-        public static final int send_timeline_notifications_permission_description=0x7f060014;
-        public static final int send_timeline_notifications_permission_label=0x7f060013;
-        public static final int summaryApiRoot=0x7f06000b;
-        public static final int summaryPassword=0x7f060009;
-        public static final int summaryUsername=0x7f060007;
-        public static final int titleApiRoot=0x7f06000a;
-        public static final int titlePassword=0x7f060008;
-        public static final int titlePrefs=0x7f06000c;
-        public static final int titlePurge=0x7f060011;
-        public static final int titleServiceStart=0x7f06000d;
-        public static final int titleServiceStop=0x7f06000e;
-        public static final int titleStatus=0x7f060001;
-        public static final int titleTimeline=0x7f06000f;
-        public static final int titleUsername=0x7f060006;
+        public static final int buttonUpdate=0x7f060002;
+        public static final int hello_world=0x7f060017;
+        public static final int hintText=0x7f060001;
+        public static final int msgAllDataPurged=0x7f060011;
+        public static final int msgLastTimelineUpdate=0x7f060016;
+        public static final int msgSetupPrefs=0x7f06000f;
+        public static final int receive_timeline_notifications_permission_description=0x7f060015;
+        public static final int receive_timeline_notifications_permission_label=0x7f060014;
+        public static final int send_timeline_notifications_permission_description=0x7f060013;
+        public static final int send_timeline_notifications_permission_label=0x7f060012;
+        public static final int summaryApiRoot=0x7f06000a;
+        public static final int summaryPassword=0x7f060008;
+        public static final int summaryUsername=0x7f060006;
+        public static final int titleApiRoot=0x7f060009;
+        public static final int titlePassword=0x7f060007;
+        public static final int titlePrefs=0x7f06000b;
+        public static final int titlePurge=0x7f060010;
+        public static final int titleServiceStart=0x7f06000c;
+        public static final int titleServiceStop=0x7f06000d;
+        public static final int titleStatus=0x7f060004;
+        public static final int titleTimeline=0x7f06000e;
+        public static final int titleUsername=0x7f060005;
     }
     public static final class style {
         /** 
@@ -92,17 +90,6 @@ public final class R {
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         
-
-        Base application theme for API 11+. This theme completely replaces
-        AppBaseTheme from res/values/styles.xml on API 11+ devices.
-    
- API 11 theme customizations can go here. 
-
-        Base application theme for API 14+. This theme completely replaces
-        AppBaseTheme from BOTH res/values/styles.xml and
-        res/values-v11/styles.xml on API 14+ devices.
-    
- API 14 theme customizations can go here. 
          */
         public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 

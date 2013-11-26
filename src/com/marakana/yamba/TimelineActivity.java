@@ -45,12 +45,12 @@ public class TimelineActivity extends BaseActivity {
 		filter = new IntentFilter(UpdaterService.NEW_STATUS_INTENT);
 	}
 
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		// close the database
-		yamba.getStatusData().close();
-	}
+//	@Override
+//	protected void onDestroy() {
+//		super.onDestroy();
+//		// close the database
+//		yamba.getStatusData().close();
+//	}
 
 	@Override
 	protected void onResume() {
@@ -105,8 +105,9 @@ public class TimelineActivity extends BaseActivity {
 
 		@Override
         public void onReceive(Context context, Intent intent) {
-	        cursor.requery();
-	        adapter.notifyDataSetChanged();
+//	        cursor.requery();
+//	        adapter.notifyDataSetChanged();
+			setupList();
 	        Log.d("TimelineReceiver", "onReceived");
         }
 		

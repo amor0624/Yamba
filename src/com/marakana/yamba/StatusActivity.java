@@ -20,7 +20,6 @@ public class StatusActivity extends BaseActivity implements OnClickListener,
 	private static final String TAG = "StatusActivity";
 	EditText editText;
 	Button updateButton;
-	Twitter twitter;
 	TextView textCount;
 
 	/** Called when the activity is first created. */
@@ -61,7 +60,6 @@ public class StatusActivity extends BaseActivity implements OnClickListener,
 		@Override
 		protected String doInBackground(String... statuses) {
 			try {
-				YambaApplication yamba = ((YambaApplication) getApplication());
 				Twitter.Status status = yamba.getTwitter()
 						.updateStatus(statuses[0]);
 				return status.text;

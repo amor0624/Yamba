@@ -6,7 +6,9 @@ import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
-
+/*
+ * class NOT required by this application but leaving it here as a tutorial for creating custom adapter
+ */
 public class TimelineAdapter extends SimpleCursorAdapter {
 	static final String[] FROM = { StatusData.C_CREATED_AT,
         StatusData.C_USER, StatusData.C_TEXT };

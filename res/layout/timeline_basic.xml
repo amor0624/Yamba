@@ -4,28 +4,31 @@
     android:layout_height="fill_parent"
     android:background="@drawable/pandabears"
     android:orientation="vertical" >
-    
+
     <!-- Title -->
-    <TextView android:layout_width="wrap_content"
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:text = "@string/titleTimeline"
+        android:text="@string/titleTimeline"
         android:textColor="#fff"
-        android:textSize="30sp"
-        />
+        android:textSize="30sp" />
 
     <!-- Text output wrapper -->
+
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
 
         <!-- Text output -->
+
         <TextView
             android:id="@+id/textTimeline"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="#6000"/>
+            android:background="#6000" />
     </ScrollView>
 
 </LinearLayout>

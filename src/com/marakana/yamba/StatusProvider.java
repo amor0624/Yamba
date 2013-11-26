@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.util.Log;
 
 public class StatusProvider extends ContentProvider {
 	static final String TAG = "StatusProvider";
@@ -17,16 +18,22 @@ public class StatusProvider extends ContentProvider {
 	@Override
 	public int delete(Uri uri, String selection, String[] selectionArgs) {
 		long id = this.getId(uri);
+		int count;
 		SQLiteDatabase db = statusData.dbHelper.getWritableDatabase();
 		try {
 			if (id<0){
-				return db.delete(StatusData.TABLE, selection, selectionArgs);
+				count =  db.delete(StatusData.TABLE, selection, selectionArgs);
 			} else {
-				return db.delete(StatusData.TABLE, StatusData.C_ID+"="+id, null);
+				count =  db.delete(StatusData.TABLE, StatusData.C_ID+"="+id, null);
 			}
 		} finally {
 			db.close();
 		}
+		
+		//CHECKPOINT: Notify the Context's ContentResolver of the change
+		getContext().getContentResolver().notifyChange(uri, null);
+		
+		return count;
 	}
 
 	@Override
@@ -42,7 +49,10 @@ public class StatusProvider extends ContentProvider {
 			if (id == -1){
 				throw new RuntimeException(String.format("%s: Failed to insert [%s] to [%s] for unknown reasons.", TAG, values, uri));
 			} else {
-				return ContentUris.withAppendedId(uri, id);
+				Uri newUri = ContentUris.withAppendedId(uri, id);
+				//CHECKPOINT: Notify the context's ContentResolver of the change
+				getContext().getContentResolver().notifyChange(newUri, null);
+				return newUri;
 			}
 		}  finally {
 			db.close();
@@ -51,7 +61,7 @@ public class StatusProvider extends ContentProvider {
 
 	@Override
 	public boolean onCreate() {
-		// TODO Auto-generated method stub
+		statusData = new StatusData(getContext());
 		return false;
 	}
 
@@ -60,26 +70,40 @@ public class StatusProvider extends ContentProvider {
 	        String sortOrder) {
 		long id = this.getId(uri);
 		SQLiteDatabase db = statusData.dbHelper.getReadableDatabase();
+		Log.d(TAG, "querying");
+		
+		Cursor c;
+		
 		if (id < 0){
-			return db.query(StatusData.TABLE, projection, selection, selectionArgs, null, null, sortOrder);
+			c =  db.query(StatusData.TABLE, projection, selection, selectionArgs, null, null, sortOrder);
 		} else {
-			return db.query(StatusData.TABLE, projection, StatusData.C_ID+"="+id, null, null, null, null);
+			c=  db.query(StatusData.TABLE, projection, StatusData.C_ID+"="+id, null, null, null, null);
 		}
+		
+		//CHECKPOINT: Notify the context's ContentResolver if the cursor result set changes
+		c.setNotificationUri(getContext().getContentResolver(), uri);
+		
+		return c;
 	}
 
 	@Override
 	public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
 		long id = this.getId(uri);
+		int count;
 		SQLiteDatabase db = statusData.dbHelper.getWritableDatabase();
 		try {
 			if (id<0){
-				return db.update(StatusData.TABLE, values, selection, selectionArgs);
+				count =  db.update(StatusData.TABLE, values, selection, selectionArgs);
 			} else {
-				return db.update(StatusData.TABLE, values, StatusData.C_ID+"="+id, null);
+				count = db.update(StatusData.TABLE, values, StatusData.C_ID+"="+id, null);
 			}
 		} finally {
 			db.close();
 		}
+		
+		//CHECKPOINT: Notify the Context's ContentResolver of the change
+		getContext().getContentResolver().notifyChange(uri, null);
+		return count;
 	}
 	
 	private long getId(Uri uri){
