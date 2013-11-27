@@ -4,26 +4,9 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <permission
-        android:name="com.marakana.yamba.SEND_TIMELINE_NOTIFICATIONS"
-        android:description="@string/send_timeline_notifications_permission_description"
-        android:label="@string/send_timeline_notifications_permission_label"
-        android:permissionGroup="android.permission-group.PERSONAL_INFO"
-        android:protectionLevel="normal" >
-    </permission>
-    <permission
-        android:name="com.marakana.yamba.RECEIVE_TIMELINE_NOTIFICATIONS"
-        android:description="@string/receive_timeline_notifications_permission_description"
-        android:label="@string/receive_timeline_notifications_permission_label"
-        android:permissionGroup="android.permission-group.PERSONAL_INFO"
-        android:protectionLevel="normal" >
-    </permission>
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="com.marakana.yamba.SEND_TIMELINE_NOTIFICATIONS" />
-    <uses-permission android:name="com.marakana.yamba.RECEIVE_TIMELINE_NOTIFICATIONS" />
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="15" />
 
     <application
         android:name="com.marakana.yamba.YambaApplication"
@@ -61,9 +44,10 @@
         </receiver>
         <receiver
             android:name=".YambaWidget"
+            android:icon="@drawable/ic_launcher"
             android:label="@string/msgLastTimelineUpdate" >
             <intent-filter>
-                <action android:name="android.widget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
             <intent-filter>
                 <action android:name="com.marakana.yamba.NEW_STATUS" />
@@ -78,5 +62,26 @@
             android:name=".StatusProvider"
             android:authorities="com.marakana.yamba.statusprovider" />
     </application>
+
+    <permission
+        android:name="com.marakana.yamba.SEND_TIMELINE_NOTIFICATIONS"
+        android:description="@string/send_timeline_notifications_permission_description"
+        android:label="@string/send_timeline_notifications_permission_label"
+        android:permissionGroup="android.permission-group.PERSONAL_INFO"
+        android:protectionLevel="normal" >
+    </permission>
+    <permission
+        android:name="com.marakana.yamba.RECEIVE_TIMELINE_NOTIFICATIONS"
+        android:description="@string/receive_timeline_notifications_permission_description"
+        android:label="@string/receive_timeline_notifications_permission_label"
+        android:permissionGroup="android.permission-group.PERSONAL_INFO"
+        android:protectionLevel="normal" >
+    </permission>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.marakana.yamba.SEND_TIMELINE_NOTIFICATIONS" />
+    <uses-permission android:name="com.marakana.yamba.RECEIVE_TIMELINE_NOTIFICATIONS" />
 
 </manifest>

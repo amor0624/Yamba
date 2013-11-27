@@ -26,6 +26,6 @@
     <string name="send_timeline_notifications_permission_description">Permisstion to send new update notification</string>
     <string name="receive_timeline_notifications_permission_label">Timeline update receiver</string>
     <string name="receive_timeline_notifications_permission_description">Permisstion to receive new timeline update notification</string>
-    <string name="msgLastTimelineUpdate">Widget: Latest Timeline Update</string>
+    <string name="msgLastTimelineUpdate">Yamba Widget</string>
 
 </resources>
