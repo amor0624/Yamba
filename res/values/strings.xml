@@ -29,6 +29,9 @@
     <string name="summaryProvider">GPS options</string>
     <string name="titleUpdaterInterval">Update Interval</string>
     <string name="summaryUpdaterInterval">Set interval for auto update</string>
+    
+    <string name="msgNotificationTitle">Yamba New Status</string>
+    <string name="msgNotificationMessage">There are %d new updates</string>
 
     <string-array name="providers">
         <item>None, please</item>
@@ -42,6 +45,8 @@
     </string-array>
     <string-array name="interval">
         <item>Never</item>
+        <!-- For dev. purpose -->
+        <item >30 secs</item>
         <item>Fifteen minutes</item>
         <item>Half hour</item>
         <item>An hour</item>
@@ -50,6 +55,7 @@
     </string-array>
     <string-array name="intervalValues">
         <item>0</item>
+        <item>30000</item>
         <item>900000</item>
         <item>1800000</item>
         <item>3600000</item>

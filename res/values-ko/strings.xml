@@ -20,6 +20,9 @@
     <string name="msgAllDataPurged">디바이스에 저장된 기록이 모두 삭제되었습니다.</string>
     <string name="titleUpdaterProvider">GPS 연결 세팅 </string>
     <string name="summaryUpdaterProvider">GPS 옵션을 선택하세요.</string>
+    
+    <string name="msgNotificationTitle">Yamba 새로운 업데이트</string>
+    <string name="msgNotificationMessage">%d개의 새로운 알람이 있습니다.</string>
 
     <string-array name="providers">
         <item>연결하지 않음</item>
@@ -33,6 +36,7 @@
     </string-array>
     <string-array name="interval">
         <item>업데이트하지않음 </item>
+        <item>30초마다</item>
         <item>15분마다 </item>
         <item>30분마다 </item>
         <item>1시간마다 </item>
@@ -41,6 +45,7 @@
     </string-array>
     <string-array name="intervalValues">
         <item>0</item>
+        <item>30000</item>
         <item>900000</item>
         <item>1800000</item>
         <item>3600000</item>
