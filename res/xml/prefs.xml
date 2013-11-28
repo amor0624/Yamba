@@ -15,4 +15,12 @@
         android:summary="@string/summaryApiRoot"
         android:title="@string/titleApiRoot" />
 
+    <ListPreference
+        android:entries="@array/providers"
+        android:entryValues="@array/providerValues"
+        android:key="provider"
+        android:summary="@string/summaryUpdaterProvider"
+        android:title="@string/titleUpdaterProvider" >
+    </ListPreference>
+
 </PreferenceScreen>

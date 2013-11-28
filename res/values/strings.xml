@@ -27,5 +27,18 @@
     <string name="receive_timeline_notifications_permission_label">Timeline update receiver</string>
     <string name="receive_timeline_notifications_permission_description">Permisstion to receive new timeline update notification</string>
     <string name="msgLastTimelineUpdate">Yamba Widget</string>
+    
+    <string name="titleUpdaterProvider">GPS Settings</string>
+    <string name="summaryUpdaterProvider">GPS options</string>
+    <string-array name="providers">
+        <item>None, please</item>
+        <item>GPS via satellites!</item>
+        <item>Mobile Network will do</item>
+    </string-array>
+    <string-array name="providerValues">
+        <item>NONE</item>
+        <item >gps</item>
+        <item>network</item>
+    </string-array>
 
 </resources>

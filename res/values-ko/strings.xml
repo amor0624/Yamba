@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+
     <string name="app_name">Yamba</string>
     <string name="titleStatus">상태업데이트</string>
-    
     <string name="hintText">140자이내로 상태를 입력하세요.</string>
     <string name="buttonUpdate">업데이트 </string>
-    
     <string name="action_settings">세팅 </string>
     <string name="hello_world">Hello world!</string>
-    
     <string name="titleUsername">아이디</string>
     <string name="summaryUsername">트위터 아이디를 입력하세요</string>
     <string name="titlePassword">비밀번호</string>
@@ -21,5 +18,19 @@
     <string name="titleTimeline">Timeline</string>
     <string name="msgSetupPrefs">Preference에서 아이디와 비밀번호를 먼저 지정해주세요.</string>
     <string name="msgAllDataPurged">디바이스에 저장된 기록이 모두 삭제되었습니다.</string>
+
+    <string name="titleUpdaterProvider">GPS 연결 세팅 </string>
+    <string name="summaryUpdaterProvider">GPS 옵션을 선택하세요.</string>
     
+    <string-array name="providers">
+        <item>연결하지 않음</item>
+        <item>GPS연결</item>
+        <item>와이파이로 연결</item>
+    </string-array>
+    <string-array name="providerValues">
+        <item>NONE</item>
+        <item>gps</item>
+        <item>network</item>
+    </string-array>
+
 </resources>

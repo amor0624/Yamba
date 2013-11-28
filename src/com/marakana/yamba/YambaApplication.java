@@ -15,6 +15,7 @@ import android.util.Log;
 public class YambaApplication extends Application implements
         OnSharedPreferenceChangeListener {
 	private static final String TAG = YambaApplication.class.getSimpleName();
+	public static final String LOCATION_PROVIDER_NONE = "NONE";
 	public Twitter twitter;
 	private SharedPreferences prefs;
 	private boolean serviceRunning;
@@ -42,6 +43,10 @@ public class YambaApplication extends Application implements
 	// public boolean startOnBoot(){
 	// return this.prefs.getBoolean("startOnBoot", false);
 	// }
+	
+	public String getProvider(){
+		return prefs.getString("provider", LOCATION_PROVIDER_NONE);
+	}
 
 	public SharedPreferences getPrefs() {
 		return prefs;

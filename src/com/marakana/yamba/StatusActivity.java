@@ -3,6 +3,9 @@ package com.marakana.yamba;
 import winterwell.jtwitter.Twitter;
 import winterwell.jtwitter.TwitterException;
 import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,11 +19,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class StatusActivity extends BaseActivity implements OnClickListener,
-		TextWatcher {
+		TextWatcher, LocationListener {
 	private static final String TAG = "StatusActivity";
+	private static final long LOCATION_MIN_TIME = 3600000; // ONE HOUR
+	private static final float LOCATION_MIN_DISTANCE = 1000; // one kilometer
 	EditText editText;
 	Button updateButton;
 	TextView textCount;
+	LocationManager locManager;
+	Location loc;
+	String provider;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -39,7 +47,30 @@ public class StatusActivity extends BaseActivity implements OnClickListener,
 
 	}
 
+	@Override
+	protected void onPause() {
+		super.onPause();
 
+		if (locManager != null)
+			locManager.removeUpdates(this);
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+		// Set up location information
+		provider = yamba.getProvider();
+		if (!YambaApplication.LOCATION_PROVIDER_NONE.equals(provider)) {
+			locManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+		}
+		if (locManager != null) {
+			loc = locManager.getLastKnownLocation(provider);
+			locManager.requestLocationUpdates(provider, LOCATION_MIN_TIME,
+					LOCATION_MIN_DISTANCE, this);
+			Log.d(TAG, String.format("Lat: %f\nLong: %f", loc.getLatitude(), loc.getLongitude()));
+		}
+	}
 
 	// Called when button is clicked
 	public void onClick(View v) {
@@ -60,8 +91,13 @@ public class StatusActivity extends BaseActivity implements OnClickListener,
 		@Override
 		protected String doInBackground(String... statuses) {
 			try {
-				Twitter.Status status = yamba.getTwitter()
-						.updateStatus(statuses[0]);
+				// Check if we have the location
+				if (loc != null) {
+					double latlong[] = { loc.getLatitude(), loc.getLongitude() };
+					yamba.getTwitter().setMyLocation(latlong);
+				}
+				Twitter.Status status = yamba.getTwitter().updateStatus(
+						statuses[0]);
 				return status.text;
 			} catch (TwitterException e) {
 				Log.e(TAG, e.toString());
@@ -102,6 +138,31 @@ public class StatusActivity extends BaseActivity implements OnClickListener,
 	}
 
 	public void onTextChanged(CharSequence s, int start, int before, int count) {
+	}
+
+	@Override
+	public void onLocationChanged(Location loc) {
+		this.loc = loc;
+		Log.d(TAG, String.format("Lat: %f\nLong: %f", loc.getLatitude(), loc.getLongitude()));
+	}
+
+	@Override
+	public void onProviderDisabled(String provider) {
+		if (this.provider.equals(provider))
+			locManager.removeUpdates(this);
+		Log.d(TAG, provider + " disabled"); 
+	}
+
+	@Override
+	public void onProviderEnabled(String provider) {
+		if (this.provider.equals(provider))
+			locManager.requestLocationUpdates(this.provider, LOCATION_MIN_TIME,
+					LOCATION_MIN_DISTANCE, this);
+		Log.d(TAG, provider + " enabled"); 
+	}
+
+	@Override
+	public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
 	}
 
 }
