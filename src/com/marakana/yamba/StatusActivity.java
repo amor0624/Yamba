@@ -68,7 +68,8 @@ public class StatusActivity extends BaseActivity implements OnClickListener,
 			loc = locManager.getLastKnownLocation(provider);
 			locManager.requestLocationUpdates(provider, LOCATION_MIN_TIME,
 					LOCATION_MIN_DISTANCE, this);
-			Log.d(TAG, String.format("Lat: %f\nLong: %f", loc.getLatitude(), loc.getLongitude()));
+			if (loc != null)
+				Log.d(TAG, String.format("Lat: %f\nLong: %f", loc.getLatitude(), loc.getLongitude()));
 		}
 	}
 
