@@ -69,15 +69,6 @@ public class YambaApplication extends Application implements
 		this.serviceRunning = serviceRunning;
 	}
 
-//CHECKPOINT
-//	public boolean isInTimeline(){
-//		return inTimeline;
-//	}
-//	
-//	public void setInTimeline(boolean inTimeline){
-//		this.inTimeline = inTimeline;
-//	}
-
 	public synchronized Twitter getTwitter() {
 		if (this.twitter == null) {
 			String username, password, apiRoot;

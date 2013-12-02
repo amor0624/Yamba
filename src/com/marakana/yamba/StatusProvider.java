@@ -30,7 +30,7 @@ public class StatusProvider extends ContentProvider {
 			db.close();
 		}
 		
-		//CHECKPOINT: Notify the Context's ContentResolver of the change
+		//Notify the Context's ContentResolver of the change
 		getContext().getContentResolver().notifyChange(uri, null);
 		
 		return count;
@@ -50,7 +50,7 @@ public class StatusProvider extends ContentProvider {
 				throw new RuntimeException(String.format("%s: Failed to insert [%s] to [%s] for unknown reasons.", TAG, values, uri));
 			} else {
 				Uri newUri = ContentUris.withAppendedId(uri, id);
-				//CHECKPOINT: Notify the context's ContentResolver of the change
+				//Notify the context's ContentResolver of the change
 				getContext().getContentResolver().notifyChange(newUri, null);
 				return newUri;
 			}
@@ -80,7 +80,7 @@ public class StatusProvider extends ContentProvider {
 			c=  db.query(StatusData.TABLE, projection, StatusData.C_ID+"="+id, null, null, null, null);
 		}
 		
-		//CHECKPOINT: Notify the context's ContentResolver if the cursor result set changes
+		//Notify the context's ContentResolver if the cursor result set changes
 		c.setNotificationUri(getContext().getContentResolver(), uri);
 		
 		return c;
@@ -101,7 +101,7 @@ public class StatusProvider extends ContentProvider {
 			db.close();
 		}
 		
-		//CHECKPOINT: Notify the Context's ContentResolver of the change
+		//Notify the Context's ContentResolver of the change
 		getContext().getContentResolver().notifyChange(uri, null);
 		return count;
 	}

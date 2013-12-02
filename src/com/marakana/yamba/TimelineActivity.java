@@ -114,8 +114,7 @@ public class TimelineActivity extends BaseActivity implements
 	@Override
 	public void onLoaderReset(Loader<Cursor> loader) {
 		// called when the last cursor is provided to onLoadFinished
-		// above is about to be closed. we need to make sure we are no longer
-		// using it
+		// above is about to be closed. we need to make sure we are no longer using it
 		adapter.swapCursor(null);
 	}
 
