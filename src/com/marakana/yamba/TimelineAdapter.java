@@ -16,7 +16,7 @@ public class TimelineAdapter extends SimpleCursorAdapter {
 
 	// Constructor
 	public TimelineAdapter(Context context, Cursor c) {
-		super(context, R.layout.row, c, FROM, TO);
+		super(context, R.layout.row, c, FROM, TO, 0);
 		// TODO Auto-generated constructor stub
 	}
 

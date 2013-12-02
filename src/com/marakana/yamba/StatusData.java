@@ -1,6 +1,5 @@
 package com.marakana.yamba;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;

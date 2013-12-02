@@ -25,7 +25,7 @@ public class YambaWidget extends AppWidgetProvider {
 			        .getAppWidgetIds(new ComponentName(context,
 			                YambaWidget.class)));
 		}
-	}
+	} 
 
 	@Override
 	public void onUpdate(Context context, AppWidgetManager appWidgetManager,
