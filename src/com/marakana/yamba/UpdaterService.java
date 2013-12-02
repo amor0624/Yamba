@@ -11,7 +11,7 @@ public class UpdaterService extends IntentService {
 	static final String TAG = "UpdaterService";
 	static final String NEW_STATUS_INTENT = "com.marakana.yamba.NEW_STATUS";
 	static final String NEW_STATUS_EXTRA_COUNT = "NEW_STATUS_EXTRA_COUNT";
-	public static final String RECEIVE_TIMELINE_NOTIFICATIONS = "com.marakana.yamba.RECIEVE_TIMELINE_NOTIFICATIONS";
+	public static final String RECEIVE_TIMELINE_NOTIFICATIONS = "com.marakana.yamba.RECEIVE_TIMELINE_NOTIFICATIONS";
 
 	private NotificationManager notiManager;
 	private Notification noti;

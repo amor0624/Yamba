@@ -30,8 +30,8 @@ public class YambaWidget extends AppWidgetProvider {
 	@Override
 	public void onUpdate(Context context, AppWidgetManager appWidgetManager,
 	        int[] appWidgetIds) {
-		Cursor c = context.getContentResolver().query(
-		        StatusProvider.CONTENT_URI, null, null, null, null);
+		Cursor c = context.getContentResolver().query( 
+		        StatusProvider.CONTENT_URI, null, null, null, StatusData.GET_ALL_ORDER_BY_STRING);
 		try {
 			if (c.moveToFirst()) {
 				CharSequence user = c.getString(c

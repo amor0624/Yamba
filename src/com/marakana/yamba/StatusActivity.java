@@ -75,15 +75,9 @@ public class StatusActivity extends BaseActivity implements OnClickListener,
 
 	// Called when button is clicked
 	public void onClick(View v) {
-		// previously
 		String status = editText.getText().toString();
 		new PostToTwitter().execute(status);
 		Log.d(TAG, "onClicked");
-		// try {
-		// getTwitter().setStatus(editText.getText().toString());
-		// } catch (TwitterException e) {
-		// Log.d(TAG, "Twitter setStatus failed: " + e);
-		// }
 	}
 
 	// Asynchronously posts to twitter

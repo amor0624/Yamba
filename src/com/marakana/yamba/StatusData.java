@@ -20,7 +20,7 @@ public class StatusData {
 	static final String C_TEXT = "txt";
 	static final String C_USER = "user";
 	
-	private static final String GET_ALL_ORDER_BY_STRING = C_CREATED_AT + " DESC";
+	static final String GET_ALL_ORDER_BY_STRING = C_CREATED_AT + " DESC";
 	
 	private static final String[] MAX_CREATED_AT_COLUMNS = { "max(" + StatusData.C_CREATED_AT + ")"};
 	
