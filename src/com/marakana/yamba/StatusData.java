@@ -75,7 +75,7 @@ public class StatusData {
 	public void delete() {
 		Log.d(TAG, "deleting all values ");
 		SQLiteDatabase db = this.dbHelper.getWritableDatabase();
-		db.delete(DATABASE, null, null);
+		db.delete(TABLE, null, null);
 		db.close();
 	}
 	
