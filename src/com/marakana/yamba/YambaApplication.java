@@ -50,7 +50,7 @@ public class YambaApplication extends Application implements
 	}
 	
 	public long getInterval() {
-		return prefs.getLong("interval", 0);
+		return Long.parseLong(prefs.getString("interval", "0"));
 	}
 
 	public SharedPreferences getPrefs() {
